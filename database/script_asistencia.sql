@@ -9,8 +9,9 @@ CREATE TABLE cursos (
     division VARCHAR(10) NOT NULL
 );
 
+-- SE QUITO EL AUTO_INCREMENT PARA PERMITIR ASIGNACIÓN MANUAL DE ID
 CREATE TABLE alumnos (
-    id_alumno INT PRIMARY KEY AUTO_INCREMENT,
+    id_alumno INT PRIMARY KEY, 
     id_curso INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
@@ -43,9 +44,5 @@ CREATE TABLE registros_asistencia (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
--- 3. CARGA DE DATOS INICIALES DE PRUEBA (DML)
-INSERT INTO cursos (nombre_curso, division) VALUES ('5to Ano', 'Division A'), ('5to Ano', 'Division B');
-INSERT INTO materias (nombre_materia) VALUES ('Matematica I', 'Ingenieria de Software');
-INSERT INTO usuarios (username, password, rol) VALUES ('profe_frias', 'segura123', 'DOCENTE');
-INSERT INTO alumnos (id_curso, nombre, apellido, dni, estado) VALUES (1, 'Carlos', 'Gomez', '41222333', 'ACTIVO');
-INSERT INTO registros_asistencia (id_alumno, id_materia, id_usuario, fecha_hora, estado_asistencia) VALUES (1, 2, 1, NOW(), 'PRESENTE');
+-- 3. CARGA DE DATOS INICIALES DEL SISTEMA
+INSERT INTO usuarios (username, password, rol) VALUES ('pablo', 'pablo1', 'DOCENTE');
